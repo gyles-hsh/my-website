@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" class="works-html">
+<head>
+    <title>Works - Andrei Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="works-body index-body">
+    <nav class="navbar">
+        <div class="logo">Gyles.</div>
+        <ul class="nav-links">
+            <li><a href="home.html" class="nav-item">Home</a></li>
+            <li><a href="about.html" class="nav-item">About</a></li>
+            <li><a href="works.html" class="nav-item">Works</a></li>
+            <li><a href="experience.html" class="nav-item">Experience</a></li>
+            <li><a href="education.html" class="nav-item">Education</a></li>
+            <li><a href="references.html" class="nav-item">References</a></li>
+            <li><a href="resume.html" class="nav-item">Resume</a></li>
+        </ul>
+    </nav>
+    <h1 class="works-header">My Works</h1>
+    
+    <div class="works-grid">
+        <div class="work-tile">
+            <div class="work-image">
+                <img src="" alt="Portfolio Website">
+            </div>
+            <div class="work-title">Project 1</div>
+            <div class="work-description">
+                A modern, responsive portfolio website built with HTML and CSS featuring smooth animations and clean design.
+            </div>
+        </div>
+
+        <div class="work-tile">
+            <div class="work-image">
+                <img src="" alt="Mobile App Design">
+            </div>
+            <div class="work-title">Project 2</div>
+            <div class="work-description">
+                User-centered mobile application interface design focused on intuitive navigation and modern aesthetics.
+            </div>
+        </div>
+
+        <div class="work-tile">
+            <div class="work-image">
+                <img src="" alt="Business Dashboard">
+            </div>
+            <div class="work-title">Project 3</div>
+            <div class="work-description">
+                Interactive analytics dashboard for visualizing business metrics and KPIs with real-time data updates.
+            </div>
+        </div>
+
+        <div class="work-tile">
+            <div class="work-image">
+                <img src="" alt="Brand Identity">
+            </div>
+            <div class="work-title">Project 4</div>
+            <div class="work-description">
+                Complete brand identity package including logo design, color palette, and visual guidelines.
+            </div>
+        </div>
+
+        <div class="work-tile">
+            <div class="work-image">
+                <img src="" alt="SaaS Platform">
+            </div>
+            <div class="work-title">Project 5</div>
+            <div class="work-description">
+                Scalable software-as-a-service platform with subscription management and user authentication.
+            </div>
+        </div>
+
+        <div class="work-tile">
+            <div class="work-image">
+                <img src="" alt="Data Visualization">
+            </div>
+            <div class="work-title">Project 6</div>
+            <div class="work-description">
+                Complex data visualization project transforming raw data into insightful, interactive charts and graphs.
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Bubble (CSS-only using checkbox) -->
+    <input type="checkbox" id="chat-toggle" class="chat-toggle">
+    <label for="chat-toggle" class="chat-bubble">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span class="bubble-text">Contact</span>
+    </label>
+
+    <!-- Contact Form Popup -->
+    <div class="contact-popup">
+        <div class="popup-header">
+            <h3>Contact Me</h3>
+            <label for="chat-toggle" class="close-btn">&times;</label>
+        </div>
+        <div class="contact-info">
+            <p><strong>Email:</strong> example@dlsu.edu.ph</p>
+            <p><strong>Phone:</strong> +63 912 345 6789</p>
+        </div>
+        <form class="contact-form" action="#" method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </div>

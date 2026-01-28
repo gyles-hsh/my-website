@@ -1,251 +1,1459 @@
-/*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
-
-/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
-/*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
-
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 html {
-  color: #222;
-  font-size: 1em;
-  line-height: 1.4;
+    scroll-behavior: smooth;
 }
 
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * Customize the background color to match your design.
- */
-
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
+body {
+    background: linear-gradient(135deg, #e8f0f7 0%, #d4e4f7 100%);
+    min-height: 100vh; 
+    color: #002147;
 }
 
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
+/* Index Page Styles */
+.index-body {
+    height: 100vh;
+    overflow: hidden;
 }
 
-/*
- * A better looking default horizontal rule
- */
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
+iframe {
+    width: 100%;
+    height: 100vh;
+    border: none;
+    display: block;
 }
 
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-  vertical-align: middle;
+.navbar, .chat-bubble, .contact-popup {
+    z-index: 2000; 
 }
 
-/*
- * Remove default fieldset styles.
- */
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
 }
 
-/*
- * Allow only vertical resizing of textareas.
- */
-
-textarea {
-  resize: vertical;
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    color: #002147;
+    transition: all 0.3s ease;
 }
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-/*
- * Hide visually and from screen readers
- */
-
-.hidden,
-[hidden] {
-  display: none !important;
+.logo:hover {
+    transform: scale(1.1);
+    color: #003366;
 }
 
-/*
- * Hide only visually, but have it available for screen readers:
- * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- *
- * 1. For long content, line feeds are not interpreted as spaces and small width
- *    causes content to wrap 1 word per line:
- *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
- */
-
-.visually-hidden {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  /* 1 */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
 }
 
-/*
- * Extends the .visually-hidden class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
-
-.visually-hidden.focusable:active,
-.visually-hidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  white-space: inherit;
-  width: auto;
+.nav-links li a {
+    text-decoration: none;
+    color: #002147;
+    font-size: 0.95rem;
+    font-weight: 600;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 0;
 }
 
-/*
- * Hide visually and from screen readers, but maintain layout
- */
-
-.invisible {
-  visibility: hidden;
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #002147;
+    transition: width 0.3s ease;
 }
 
-/*
- * Clearfix: contain floats
- *
- * The use of `table` rather than `block` is only necessary if using
- * `::before` to contain the top-margins of child elements.
- */
-
-.clearfix::before,
-.clearfix::after {
-  content: "";
-  display: table;
+.nav-links li a:hover { 
+    opacity: 1;
+    transform: translateY(-2px);
 }
 
-.clearfix::after {
-  clear: both;
+.nav-links li a:hover::after {
+    width: 100%;
 }
 
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
+.nav-links li a.active { 
+    opacity: 1;
+    font-weight: 700;
 }
 
-@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
+.nav-links li a.active::after {
+    width: 100%;
 }
 
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   https://www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
+/* Active nav via page body context (HTML/CSS only, no JS) */
+.home-body .nav-links a[href="home.html"],
+.about-body .nav-links a[href="about.html"],
+.works-body .nav-links a[href="works.html"],
+.experience-body .nav-links a[href="experience.html"],
+.education-body .nav-links a[href="education.html"],
+.references-body .nav-links a[href="references.html"],
+.resume-body .nav-links a[href="resume.html"],
+.portfolio-body .nav-links a[href="portfolio.html"] {
+    opacity: 1;
+    font-weight: 700;
+}
+
+.home-body .nav-links a[href="home.html"]::after,
+.about-body .nav-links a[href="about.html"]::after,
+.works-body .nav-links a[href="works.html"]::after,
+.experience-body .nav-links a[href="experience.html"]::after,
+.education-body .nav-links a[href="education.html"]::after,
+.references-body .nav-links a[href="references.html"]::after,
+.resume-body .nav-links a[href="resume.html"]::after,
+.portfolio-body .nav-links a[href="portfolio.html"]::after {
+    width: 100%;
+}
+
+.hero-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 15%;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.fixed-contact {
+    position: fixed;
+    bottom: 30px;
+    left: 40px;
+    z-index: 1000;
+    color: #002147;
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.6;
+    text-shadow: none; 
+}
+
+.fixed-contact::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: #002147;
+    margin-bottom: 10px;
+}
+
+/* Contact Info in Popup */
+.contact-info {
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 0.9rem;
+    color: #002147;
+}
+
+.contact-info p {
+    margin: 5px 0;
+    line-height: 1.6;
+}
+
+.contact-info strong {
+    font-weight: 600;
+}
+
+/* Chat Bubble Styles - CSS Only */
+.chat-toggle {
+    display: none;
+}
+
+.chat-bubble {
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    padding: 15px 25px;
+    background: #002147;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 33, 71, 0.3);
+    transition: all 0.3s ease;
+    z-index: 2001;
+    animation: fadeInUp 0.6s ease 0.5s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chat-bubble:hover {
+    transform: scale(1.08) translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 33, 71, 0.5);
+}
+
+.chat-bubble svg {
+    color: white;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.bubble-text {
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Contact Popup Styles */
+.contact-popup {
+    position: fixed;
+    bottom: 110px;
+    right: 40px;
+    width: 350px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 2000;
+    pointer-events: none;
+}
+
+.chat-toggle:checked ~ .contact-popup {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+}
+
+.popup-header {
+    background: #002147;
+    color: white;
+    padding: 20px;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popup-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg);
+}
+
+.contact-form {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #002147;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #002147;
+    box-shadow: 0 0 0 3px rgba(0, 33, 71, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: #002147;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.submit-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.submit-btn:hover {
+    background: #003366;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 33, 71, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   HOME PAGE STYLES
+   ============================================ */
+.home-html {
+    height: 100%;
+}
+
+.home-body {
+    background: transparent !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #002147;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 120px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 40px;
+}
+
+.home-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.hero-content {
+    flex: 1;
+    text-align: left;
+    animation: slideInLeft 0.8s ease;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.hero-name {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+}
+
+.hero-name strong {
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.hero-name strong:hover {
+    color: #003366;
+    transform: scale(1.02);
+}
+
+.hero-name strong::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: rgba(0, 33, 71, 0.15);
+    z-index: -1;
+    animation: expandWidth 0.8s ease 0.3s both;
+}
+
+@keyframes expandWidth {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.credentials {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.degree {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #002147;
+    letter-spacing: 0.5px;
+    opacity: 0;
+    animation: fadeIn 0.6s ease 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.minor {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: #003366;
+    font-style: italic;
+    opacity: 0;
+    animation: fadeIn 0.6s ease 0.7s forwards;
+}
+
+.accent-line {
+    width: 80px;
+    height: 4px;
+    background: #002147;
+    margin-top: 25px;
+    animation: expandWidth 0.8s ease 0.9s both;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideInRight 0.8s ease;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.image-placeholder {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, rgba(0, 33, 71, 0.1) 0%, rgba(0, 51, 102, 0.2) 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgba(0, 33, 71, 0.3);
+    font-size: 1.2rem;
+    color: #002147;
+    font-weight: 600;
+    overflow: hidden;
+}
+
+.image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ============================================
+   ABOUT PAGE STYLES
+   ============================================ */
+.about-html {
+    height: 100%;
+}
+
+.about-body {
+    background: transparent !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 120px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 40px;
+    color: #002147;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.about-content {
+    flex: 1;
+    animation: slideInLeft 0.8s ease;
+}
+
+.about-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    transition: color 0.3s ease;
+}
+
+.about-content h1:hover {
+    color: #003366;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    opacity: 0;
+    animation: fadeIn 0.8s ease 0.3s forwards;
+}
+
+/* ============================================
+   WORKS PAGE STYLES
+   ============================================ */
+.works-html {
+    height: 100%;
+}
+
+.works-body {
+    background: transparent !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 120px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 40px;
+    color: #002147;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.works-header {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #002147;
+}
+
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+}
+
+.work-tile {
+    position: relative;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    overflow: hidden;
+    height: 280px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    animation: fadeInScale 0.6s ease forwards;
+    box-shadow: 0 4px 6px rgba(0, 33, 71, 0.1);
+}
+
+.work-tile:nth-child(1) { animation-delay: 0.1s; }
+.work-tile:nth-child(2) { animation-delay: 0.2s; }
+.work-tile:nth-child(3) { animation-delay: 0.3s; }
+.work-tile:nth-child(4) { animation-delay: 0.4s; }
+.work-tile:nth-child(5) { animation-delay: 0.5s; }
+.work-tile:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.work-tile:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 33, 71, 0.25);
+}
+
+.work-image {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #003366 0%, #002147 100%);
+}
+
+.work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.work-tile:hover .work-image img {
+    transform: scale(1.1);
+}
+
+.work-title {
+    padding: 20px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #002147;
+    transition: color 0.3s ease;
+}
+
+.work-tile:hover .work-title {
+    color: #003366;
+}
+
+.work-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 33, 71, 0.95);
+    color: white;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.work-tile:hover .work-description {
+    opacity: 1;
+}
+
+/* ============================================
+   EXPERIENCE PAGE STYLES
+   ============================================ */
+.experience-html {
+    height: 100%;
+}
+
+.experience-body {
+    background: transparent !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 120px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 40px;
+    color: #002147;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.experience-header {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: #002147;
+}
+
+.git-branch-container {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+}
+
+.branch-line {
+    position: absolute;
+    left: 40px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #002147;
+    animation: growLine 1.2s ease;
+}
+
+@keyframes growLine {
+    from {
+        height: 0;
+        opacity: 0;
+    }
+    to {
+        height: 100%;
+        opacity: 1;
+    }
+}
+
+.experience-item {
+    position: relative;
+    margin-bottom: 60px;
+    padding-left: 100px;
+    opacity: 0;
+    animation: slideInLeft 0.6s ease forwards;
+}
+
+.experience-item:nth-child(2) { animation-delay: 0.2s; }
+.experience-item:nth-child(3) { animation-delay: 0.4s; }
+.experience-item:nth-child(4) { animation-delay: 0.6s; }
+
+.branch-node {
+    position: absolute;
+    left: 28px;
+    top: 10px;
+    width: 28px;
+    height: 28px;
+    background: #002147;
+    border: 4px solid white;
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 0 3px #002147;
+    transition: all 0.3s ease;
+    animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 3px #002147;
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(0, 33, 71, 0.4);
+        transform: scale(1.1);
+    }
+}
+
+.branch-connector {
+    position: absolute;
+    left: 41px;
+    top: 24px;
+    width: 60px;
+    height: 2px;
+    background: #002147;
+}
+
+.experience-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    padding: 25px 30px;
+    border: 2px solid #002147;
+    transition: all 0.4s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-5px) translateX(10px);
+    box-shadow: 0 12px 30px rgba(0, 33, 71, 0.25);
+    border-color: #003366;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.job-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #002147;
+    margin-bottom: 8px;
+}
+
+.company-name {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #003366;
+    margin-bottom: 8px;
+}
+
+.date-range {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.job-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    background: #002147;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skill-tag:hover {
+    background: #003366;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 33, 71, 0.3);
+}
+
+/* ============================================
+   EDUCATION PAGE STYLES
+   ============================================ */
+.education-html {
+    height: 100%;
+}
+
+.education-body {
+    background: transparent !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 120px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 40px;
+    color: #002147;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.education-header {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: #002147;
+}
+
+.education-timeline {
+    max-width: 1000px;
+    width: 100%;
+}
+
+.education-tab {
+    display: flex;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.education-tab.left {
+    justify-content: flex-start;
+}
+
+.education-tab.right {
+    justify-content: flex-end;
+}
+
+.tab-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 30px;
+    width: 65%;
+    box-shadow: 0 4px 12px rgba(0, 33, 71, 0.15);
+    border: 2px solid #002147;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tab-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 33, 71, 0.25);
+}
+
+.tab-card h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #002147;
+    margin-bottom: 10px;
+}
+
+.tab-card .institution {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #003366;
+    margin-bottom: 8px;
+}
+
+.tab-card .year {
+    font-size: 0.95rem;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.tab-card .description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #333;
+}
+
+/* ============================================
+   REFERENCES PAGE STYLES
+   ============================================ */
+.references-html {
+    height: 100%;
+}
+
+.references-body {
+    background: transparent !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 120px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 40px;
+    color: #002147;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.references-header {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: #002147;
+}
+
+.references-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.reference-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 30px;
+    padding-top: 50px;
+    box-shadow: 0 4px 12px rgba(0, 33, 71, 0.15);
+    border: 2px solid #e0e0e0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.reference-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 33, 71, 0.25);
+}
+
+.window-controls {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 8px;
+}
+
+.window-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+}
+
+.window-btn.close {
+    background: #ff5f57;
+}
+
+.window-btn.minimize {
+    background: #ffbd2e;
+}
+
+.window-btn.maximize {
+    background: #28c840;
+}
+
+.quote-icon {
+    font-size: 2.5rem;
+    color: #002147;
+    opacity: 0.3;
+    margin-bottom: 15px;
+    line-height: 1;
+}
+
+.reference-quote {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #333;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.reference-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #002147;
+    margin-bottom: 5px;
+}
+
+.reference-position {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #003366;
+    margin-bottom: 3px;
+}
+
+.reference-company {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+/* ============================================
+   RESUME PAGE STYLES
+   ============================================ */
+.resume-html {
+    height: 100%;
+}
+
+.resume-body {
+    background: #f2f5f9 !important;
+    font-family: 'Work Sans', sans-serif;
+    color: #4a4a4a;
+    line-height: 1.7;
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 40px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: auto;
+}
+
+.resume-body .navbar,
+.resume-body .logo,
+.resume-body .nav-links,
+.resume-body .nav-links li a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+.resume-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    background: white;
+    border-radius: 2px;
+    overflow: hidden;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.resume-header {
+    background: linear-gradient(135deg, #002147 0%, #003366 100%);
+    color: white;
+    padding: 3.5rem 3rem 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.resume-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.resume-header-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.resume-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    animation: slideInLeft 0.6s ease-out 0.2s both;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.resume-contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+    animation: slideInLeft 0.6s ease-out 0.4s both;
+}
+
+.resume-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.resume-contact-item::before {
+    content: '•';
+    color: white;
+    font-size: 1.2rem;
+}
+
+.resume-contact-item:first-child::before {
+    content: none;
+}
+
+.resume-content {
+    padding: 3rem;
+}
+
+.resume-section {
+    margin-bottom: 3rem;
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+.resume-section:nth-child(1) { animation-delay: 0.3s; }
+.resume-section:nth-child(2) { animation-delay: 0.4s; }
+.resume-section:nth-child(3) { animation-delay: 0.5s; }
+.resume-section:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.resume-section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #002147;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #002147;
+    display: inline-block;
+    letter-spacing: 0.02em;
+}
+
+.resume-education-item, .resume-experience-item {
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+    border-left: 3px solid #e5e5e0;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.resume-education-item:nth-child(1) { animation-delay: 0.1s; }
+.resume-education-item:nth-child(2) { animation-delay: 0.2s; }
+.resume-experience-item:nth-child(1) { animation-delay: 0.1s; }
+.resume-experience-item:nth-child(2) { animation-delay: 0.2s; }
+.resume-experience-item:nth-child(3) { animation-delay: 0.3s; }
+.resume-experience-item:nth-child(4) { animation-delay: 0.4s; }
+
+.resume-education-item:hover, .resume-experience-item:hover {
+    border-left-color: #002147;
+    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.3);
+    padding-right: 1rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.resume-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.resume-institution, .resume-organization {
+    font-weight: 600;
+    color: #002147;
+    font-size: 1.1rem;
+}
+
+.resume-location {
+    font-size: 0.9rem;
+    color: #4a4a4a;
+    font-weight: 400;
+}
+
+.resume-degree, .resume-position {
+    font-weight: 500;
+    color: #4a4a4a;
+    margin-bottom: 0.2rem;
+}
+
+.resume-date-range {
+    font-size: 0.9rem;
+    color: #002147;
+    font-weight: 500;
+}
+
+.resume-minor, .resume-award {
+    font-size: 0.95rem;
+    color: #4a4a4a;
+    margin-top: 0.2rem;
+}
+
+.resume-award {
+    font-style: italic;
+}
+
+.resume-responsibilities {
+    list-style: none;
+    margin-top: 0.8rem;
+}
+
+.resume-responsibilities li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.resume-responsibilities li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #002147;
+    font-weight: bold;
+}
+
+.resume-additional-content {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.resume-additional-item {
+    padding: 1.2rem;
+    background: #fafaf8;
+    border-radius: 4px;
+    border-left: 3px solid #002147;
+}
+
+.resume-additional-title {
+    font-weight: 600;
+    color: #002147;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.resume-additional-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .resume-header {
+        padding: 2.5rem 1.5rem 2rem;
+    }
+
+    .resume-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .resume-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .resume-section-title {
+        font-size: 1.5rem;
+    }
+
+    .resume-contact-info {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .resume-item-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .resume-header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+/* Resume header layout additions */
+.resume-header-left {
+    flex: 1;
+    min-width: 0;
+}
+
+.resume-photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.resume-page {
+    background: #f2f5f9 !important;
+}
 
 @media print {
-  *,
-  *::before,
-  *::after {
-    background: #fff !important;
-    color: #000 !important;
-    /* Black prints faster */
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
+    .resume-body {
+        background: white !important;
+        padding: 0;
+    }
 
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
+    .resume-container {
+        box-shadow: none;
+        max-width: 100%;
+    }
 
-  a[href]::after {
-    content: " (" attr(href) ")";
-  }
-
-  abbr[title]::after {
-    content: " (" attr(title) ")";
-  }
-
-  /*
-   * Don't show links that are fragment identifiers,
-   * or use the `javascript:` pseudo protocol
-   */
-  a[href^="#"]::after,
-  a[href^="javascript:"]::after {
-    content: "";
-  }
-
-  pre {
-    white-space: pre-wrap !important;
-  }
-
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
-
-  body { font-family: Arial, sans-serif;
-    margin: 40px;
-  }
+    .resume-section, .resume-header-content {
+        animation: none;
+    }
 }
 

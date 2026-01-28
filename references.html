@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" class="references-html">
+<head>
+    <title>References - Andrei Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="references-body index-body">
+    <nav class="navbar">
+        <div class="logo">Gyles.</div>
+        <ul class="nav-links">
+            <li><a href="home.html" class="nav-item">Home</a></li>
+            <li><a href="about.html" class="nav-item">About</a></li>
+            <li><a href="works.html" class="nav-item">Works</a></li>
+            <li><a href="experience.html" class="nav-item">Experience</a></li>
+            <li><a href="education.html" class="nav-item">Education</a></li>
+            <li><a href="references.html" class="nav-item">References</a></li>
+            <li><a href="resume.html" class="nav-item">Resume</a></li>
+        </ul>
+    </nav>
+    <h1 class="references-header">References</h1>
+    
+    <div class="references-grid">
+        <div class="reference-card">
+            <div class="window-controls">
+                <div class="window-btn close"></div>
+                <div class="window-btn minimize"></div>
+                <div class="window-btn maximize"></div>
+            </div>
+            <div class="quote-icon">"</div>
+            <p class="reference-quote">
+                An outstanding professional with exceptional technical skills and leadership qualities. Consistently delivers high-quality work and goes above and beyond expectations.
+            </p>
+            <div class="reference-name">John Doe</div>
+            <div class="reference-position">Senior Software Engineer</div>
+            <div class="reference-company">Tech Company Inc.</div>
+        </div>
+
+        <div class="reference-card">
+            <div class="window-controls">
+                <div class="window-btn close"></div>
+                <div class="window-btn minimize"></div>
+                <div class="window-btn maximize"></div>
+            </div>
+            <div class="quote-icon">"</div>
+            <p class="reference-quote">
+                A dedicated team player who brings creativity and innovation to every project. Their problem-solving abilities are truly remarkable.
+            </p>
+            <div class="reference-name">Jane Smith</div>
+            <div class="reference-position">Project Manager</div>
+            <div class="reference-company">Digital Solutions Ltd.</div>
+        </div>
+
+        <div class="reference-card">
+            <div class="window-controls">
+                <div class="window-btn close"></div>
+                <div class="window-btn minimize"></div>
+                <div class="window-btn maximize"></div>
+            </div>
+            <div class="quote-icon">"</div>
+            <p class="reference-quote">
+                Demonstrates strong analytical thinking and excellent communication skills. A valuable asset to any organization.
+            </p>
+            <div class="reference-name">Michael Johnson</div>
+            <div class="reference-position">Lead Developer</div>
+            <div class="reference-company">Innovation Labs</div>
+        </div>
+
+        <div class="reference-card">
+            <div class="window-controls">
+                <div class="window-btn close"></div>
+                <div class="window-btn minimize"></div>
+                <div class="window-btn maximize"></div>
+            </div>
+            <div class="quote-icon">"</div>
+            <p class="reference-quote">
+                Shows great initiative and passion for continuous learning. Their contributions have significantly improved our team's performance.
+            </p>
+            <div class="reference-name">Sarah Williams</div>
+            <div class="reference-position">Engineering Director</div>
+            <div class="reference-company">Future Tech Corp.</div>
+        </div>
+    </div>
+
+    <!-- Chat Bubble (CSS-only using checkbox) -->
+    <input type="checkbox" id="chat-toggle" class="chat-toggle">
+    <label for="chat-toggle" class="chat-bubble">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span class="bubble-text">Contact</span>
+    </label>
+
+    <!-- Contact Form Popup -->
+    <div class="contact-popup">
+        <div class="popup-header">
+            <h3>Contact Me</h3>
+            <label for="chat-toggle" class="close-btn">&times;</label>
+        </div>
+        <div class="contact-info">
+            <p><strong>Email:</strong> example@dlsu.edu.ph</p>
+            <p><strong>Phone:</strong> +63 912 345 6789</p>
+        </div>
+        <form class="contact-form" action="#" method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </div>
+</body>
+</html>
