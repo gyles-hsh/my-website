@@ -106,7 +106,7 @@ iframe {
     width: 100%;
 }
 
-/* Active nav via page body context (HTML/CSS only, no JS) */
+/* Active nav via page body context */
 .home-body .nav-links a[href="home.html"],
 .about-body .nav-links a[href="about.html"],
 .works-body .nav-links a[href="works.html"],
@@ -192,7 +192,7 @@ iframe {
     font-weight: 600;
 }
 
-/* Chat Bubble Styles - CSS Only */
+/* Chat Bubble Styles */
 .chat-toggle {
     display: none;
 }
@@ -388,9 +388,7 @@ iframe {
     transform: translateY(0);
 }
 
-/* ============================================
-   HOME PAGE STYLES
-   ============================================ */
+/* HOME PAGE STYLES */
 .home-html {
     height: 100%;
 }
@@ -561,9 +559,7 @@ iframe {
     object-fit: cover;
 }
 
-/* ============================================
-   ABOUT PAGE STYLES
-   ============================================ */
+/* ABOUT PAGE STYLES */
 .about-html {
     height: 100%;
 }
@@ -616,9 +612,7 @@ iframe {
     animation: fadeIn 0.8s ease 0.3s forwards;
 }
 
-/* ============================================
-   WORKS PAGE STYLES
-   ============================================ */
+/* WORKS PAGE STYLES */
 .works-html {
     height: 100%;
 }
@@ -740,9 +734,7 @@ iframe {
     opacity: 1;
 }
 
-/* ============================================
-   EXPERIENCE PAGE STYLES
-   ============================================ */
+/* EXPERIENCE PAGE STYLES */
 .experience-html {
     height: 100%;
 }
@@ -907,9 +899,7 @@ iframe {
     box-shadow: 0 4px 8px rgba(0, 33, 71, 0.3);
 }
 
-/* ============================================
-   EDUCATION PAGE STYLES
-   ============================================ */
+/* EDUCATION PAGE STYLES */
 .education-html {
     height: 100%;
 }
@@ -999,9 +989,7 @@ iframe {
     color: #333;
 }
 
-/* ============================================
-   REFERENCES PAGE STYLES
-   ============================================ */
+/* REFERENCES PAGE STYLES */
 .references-html {
     height: 100%;
 }
@@ -1116,15 +1104,13 @@ iframe {
     color: #666;
 }
 
-/* ============================================
-   RESUME PAGE STYLES
-   ============================================ */
+/* RESUME PAGE STYLES */
 .resume-html {
     height: 100%;
 }
 
 .resume-body {
-    background: #f2f5f9 !important;
+    background: transparent !important;
     font-family: 'Work Sans', sans-serif;
     color: #4a4a4a;
     line-height: 1.7;
@@ -1138,21 +1124,15 @@ iframe {
     height: auto;
 }
 
-.resume-body .navbar,
-.resume-body .logo,
-.resume-body .nav-links,
-.resume-body .nav-links li a {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-}
-
 .resume-container {
     max-width: 900px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0;
     background: white;
-    border-radius: 2px;
+    border-radius: 8px;
     overflow: hidden;
     animation: fadeIn 0.8s ease-out;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes fadeIn {
@@ -1279,8 +1259,7 @@ iframe {
 .resume-education-item, .resume-experience-item {
     margin-bottom: 2rem;
     padding-left: 1.5rem;
-    border-left: 3px solid #e5e5e0;
-    transition: all 0.3s ease;
+    border-left: 3px solid #002147;
     opacity: 0;
     animation: fadeIn 0.5s ease forwards;
 }
@@ -1292,27 +1271,36 @@ iframe {
 .resume-experience-item:nth-child(3) { animation-delay: 0.3s; }
 .resume-experience-item:nth-child(4) { animation-delay: 0.4s; }
 
-.resume-education-item:hover, .resume-experience-item:hover {
-    border-left-color: #002147;
-    transform: translateX(5px);
-    background: rgba(255, 255, 255, 0.3);
-    padding-right: 1rem;
-    border-radius: 0 8px 8px 0;
-}
+
 
 .resume-item-header {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: flex-start;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.1rem;
 }
 
-.resume-institution, .resume-organization {
+.resume-institution {
+    font-weight: 600;
+    color: #002147;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    max-width: 50%;
+}
+
+.resume-organization {
     font-weight: 600;
     color: #002147;
     font-size: 1.1rem;
+}
+
+.resume-right-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
 }
 
 .resume-location {
