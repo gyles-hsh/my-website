@@ -6,7 +6,7 @@
 </head>
 <body class="home-body index-body">
     <nav class="navbar">
-        <div class="logo">Gyles.</div>
+        <div class="logo" id="logoTrigger" title="Click me for a surprise!">Gyles.</div>
         <ul class="nav-links">
             <li><a href="home.html" class="nav-item">Home</a></li>
             <li><a href="about.html" class="nav-item">About</a></li>
@@ -25,6 +25,12 @@
                 <div class="minor">Minor in Financial Risk and Analytics</div>
             </div>
             <div class="accent-line"></div>
+            
+            <!-- Live Digital Clock -->
+            <div class="clock-container">
+                <div class="clock-display" id="digitalClock">00:00:00</div>
+                <div class="clock-date" id="digitalDate"></div>
+            </div>
         </div>
         <div class="image-container">
             <div class="image-placeholder">
@@ -33,40 +39,12 @@
         </div>
     </div>
 
-    <!-- Chat Bubble -->
-    <input type="checkbox" id="chat-toggle" class="chat-toggle">
-    <label for="chat-toggle" class="chat-bubble">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-        </svg>
-        <span class="bubble-text">Contact</span>
-    </label>
-
-    <!-- Contact Form -->
-    <div class="contact-popup">
-        <div class="popup-header">
-            <h3>Contact Me</h3>
-            <label for="chat-toggle" class="close-btn">&times;</label>
-        </div>
-        <div class="contact-info">
-            <p><strong>Email:</strong> example@dlsu.edu.ph</p>
-            <p><strong>Phone:</strong> +63 912 345 6789</p>
-        </div>
-        <form class="contact-form" action="#" method="post">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Send Message</button>
-        </form>
+    <!-- Hidden Animation Feature - Bouncing Ball -->
+    <div id="animationContainer" class="animation-container">
+        <div id="bouncingBall" class="bouncing-ball"></div>
+        <button id="closeAnimation" class="close-animation-btn">✕ Close Animation</button>
     </div>
+    
+    <script src="js/app.js"></script>
 </body>
 </html>
