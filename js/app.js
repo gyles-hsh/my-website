@@ -141,7 +141,7 @@ function setupRealTimeValidation() {
         emailField.addEventListener('input', function() {
             clearError('email');
             if (this.value.length > 0 && !this.value.includes('@')) {
-                showError('email', 'Email must contain @');
+                showError('email', 'Invalid email address');
             } else if (this.value.length > 0) {
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(this.value)) {
